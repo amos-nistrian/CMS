@@ -14,7 +14,7 @@
     <?php if ($current_page) { ?>
 
       <h2><?php echo htmlentities($current_page["menu_name"]) ?></h2>
-      <?php echo htmlentities($current_page["content"]) ?>
+      <?php echo nl2br(htmlentities($current_page["content"])) ?>
 
     <?php } else { ?>
 

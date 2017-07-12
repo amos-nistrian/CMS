@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
   		    <input type="radio" name="visible" value="1" <?php if ($current_page["visible"] == 1) { echo "checked"; } ?> /> Yes
   		  </p>
         Content:<br />
-        <textarea class="view-content-editable" rows="4" cols="50" type="text" name="content"><?php echo htmlentities($current_page["content"]); ?></textarea>
+        <textarea class="view-content-editable" rows="20" cols="80" type="text" name="content"><?php echo htmlentities($current_page["content"]); ?></textarea>
         <br />
   		  <input type="submit" name="submit" value="Edit Page" />
   		</form>
