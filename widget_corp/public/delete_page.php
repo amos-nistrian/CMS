@@ -4,7 +4,6 @@
 
 <?php
   $current_page = find_page_by_id($_GET["page"], false);
-  $current_subject = $_GET["subject"];
   if (!$current_page) {
     // page ID was missing or invalid or
     // page couldn't be found in database
