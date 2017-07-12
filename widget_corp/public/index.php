@@ -12,9 +12,14 @@
   </div>
   <div id="page">
     <?php if ($current_page) { ?>
+
+      <h2><?php echo htmlentities($current_page["menu_name"]) ?></h2>
       <?php echo htmlentities($current_page["content"]) ?>
+
     <?php } else { ?>
-      Please select a subject or a page.
+
+      <p>Welcome!</p>
+
     <?php } ?>
   </div>
 </div>
