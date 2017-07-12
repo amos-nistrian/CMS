@@ -1,6 +1,8 @@
 <?php require_once("../includes/session.php") ?>
 <?php require_once("../includes/db_connection.php") ?>
 <?php require_once("../includes/functions.php") ?>
+<?php global $layout_context; ?>
+<?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
 <?php find_selected_page(); ?>
 
@@ -24,7 +26,7 @@
       Visible: <?php echo $current_subject["visible"] == 1 ? 'yes' : 'no'; ?><br />
       <br />
       <a href="edit_subject.php?subject=<?php echo urlencode($current_subject["id"]); ?>">Edit Subject</a>
-      
+
     <?php } elseif ($current_page) { ?>
       <h2>Manage Page</h2>
       Menu name: <?php echo htmlentities($current_page["menu_name"]); ?><br />

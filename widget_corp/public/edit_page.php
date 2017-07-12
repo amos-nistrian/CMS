@@ -62,7 +62,8 @@ if (isset($_POST['submit'])) {
 
 
 ?>
-
+<?php global $layout_context; ?>
+<?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
 
 <div id="main">
@@ -84,7 +85,7 @@ if (isset($_POST['submit'])) {
   		  <p>Position:
   		    <select name="position">
             <?php
-              $page_set = find_pages_for_subject($current_page["subject_id"]);
+              $page_set = find_pages_for_subject($current_page["subject_id"], false);
               $page_count = mysqli_num_rows($page_set);
               for ($count = 1; $count <= $page_count; $count++) {
                 echo "<option value=\"{$count}\"";
@@ -107,7 +108,7 @@ if (isset($_POST['submit'])) {
   		  <input type="submit" name="submit" value="Edit Page" />
   		</form>
   		<br />
-  		<a href="manage_content.php" >Cancel</a>
+  		<a href="manage_content.php">Cancel</a>
       &nbsp;
       &nbsp;
       <a href="delete_page.php?page=<?php echo urlencode($current_page["id"]); ?>&subject=<?php echo urlencode($current_page["subject_id"]); ?>" onclick="return confirm('Are you sure?')">Delete Page</a>

@@ -1,6 +1,8 @@
 <?php require_once("../includes/session.php") ?>
 <?php require_once("../includes/db_connection.php") ?>
 <?php require_once("../includes/functions.php") ?>
+<?php global $layout_context; ?>
+<?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
 <?php include("jsfunctions.js") ?>
 
@@ -23,7 +25,7 @@
   		  </p>
         <p>Subject:
           <?php
-            $subject_set = find_all_subjects();
+            $subject_set = find_all_subjects(false);
             $page_set = find_all_pages();
 
             //takes the $subject_set and turns each row into an associative array ex subjects[i] = array("id" => $row["id"], "subjectName" => $row["menu_name"])
