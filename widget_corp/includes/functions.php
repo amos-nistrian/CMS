@@ -96,7 +96,7 @@
 		}
 	}
 
-  function find_page_by_id($page_id) {
+  function find_page_by_id($page_id, $public=true) {
     global $connection;
 
     $safe_page_id = mysqli_real_escape_string($connection, $page_id);
@@ -104,6 +104,9 @@
     $query  = "SELECT * ";
     $query .= "FROM pages ";
     $query .= "WHERE id = {$safe_page_id} ";
+    if ($public) {
+      $query .= "AND visible = 1 ";
+    }
     $query .= "LIMIT 1";
     $page_set = mysqli_query($connection, $query);
     confirm_query($page_set);
@@ -137,7 +140,7 @@
       }
     } elseif (isset($_GET["page"])) {
       $current_subject = null;
-      $current_page = find_page_by_id($_GET["page"]);
+      $current_page = find_page_by_id($_GET["page"], $public);
     } else {
       $current_page = null;
       $current_subject = null;
