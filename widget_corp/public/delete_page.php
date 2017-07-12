@@ -3,7 +3,7 @@
 <?php require_once("../includes/functions.php") ?>
 
 <?php
-  $current_page = $_GET["page"];
+  $current_page = find_page_by_id($_GET["page"], false);
   $current_subject = $_GET["subject"];
   if (!$current_page) {
     // page ID was missing or invalid or
@@ -11,7 +11,7 @@
     redirect_to("manage_content.php");
   }
 
-  $id = $current_page;
+  $id = $current_page["id"];
   $query = "DELETE FROM pages WHERE id = {$id} LIMIT 1";
   $result = mysqli_query($connection, $query);
 

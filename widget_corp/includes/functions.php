@@ -136,13 +136,13 @@
 
     if (isset($_GET["subject"])) {
       $current_subject = find_subject_by_id($_GET["subject"], $public);
-      if ($current_subject != null) {
+      if ($current_subject) {
         if ($public) {
           $current_page = find_default_page_for_subject($current_subject["id"]);
         } else {
           $current_page = null;
         }
-      }  
+      }
     } elseif (isset($_GET["page"])) {
       $current_subject = null;
       $current_page = find_page_by_id($_GET["page"], $public);
