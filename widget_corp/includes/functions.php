@@ -72,6 +72,19 @@
     return $admin_set;
   }
 
+  function display_admins($admin_set) {
+    $output = "<ul>";
+    while ($admin = mysqli_fetch_assoc($admin_set)) {
+      //print($admin["username"]);
+      $output .= "<li>";
+      $output .= htmlentities($admin["username"]);
+      $output .= "</li>";
+    }
+    $output .= "</ul>";
+    mysqli_free_result($admin_set);
+    return $output;
+  }
+
   function find_pages_for_subject($subject_id, $public=true) {
     global $connection;
 

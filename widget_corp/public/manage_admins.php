@@ -4,16 +4,19 @@
 <?php global $layout_context; ?>
 <?php $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
-<?php $admin_set = find_all_admins();
-?>
+<?php $admin_set = find_all_admins(); ?>
+
 
 <div id="main">
   <div id="navigation"></div>
   <div id="page">
-      <div><h2>Manage Admins</h2></div>
-      <!-- loop through all admin usernames  -->
+      <div>
+        <h2>Manage Admins</h2>
+      </div>
       <div id="username">
+        <!-- loop through all admin usernames  -->
         <h3>Username</h3>
+        <?php echo display_admins($admin_set); ?>
         <!-- function should display html of username and edit delete link dynamically  -->
       </div>
       <div id="actions">
