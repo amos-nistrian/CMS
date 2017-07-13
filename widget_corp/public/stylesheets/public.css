@@ -79,3 +79,13 @@ div.message {
   margin: 1em 0; padding: 1em;
 }
 .error ul { padding-left: 2em; }
+
+#username h3 {
+  float: left;
+  color: #000000;
+}
+
+#actions h3 {
+  float: left;
+  color: #000000;
+}
