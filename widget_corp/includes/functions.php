@@ -73,7 +73,7 @@
   }
 
   function display_admins($admin_set) {
-    $output = "<ul>";
+    $output = "<ul class=\"admins\">";
     while ($admin = mysqli_fetch_assoc($admin_set)) {
       //print($admin["username"]);
       $output .= "<li>";

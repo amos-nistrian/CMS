@@ -80,6 +80,7 @@ div.message {
 }
 .error ul { padding-left: 2em; }
 
+/* manage admins */
 #username h3 {
   float: left;
   color: #000000;
@@ -89,3 +90,5 @@ div.message {
   float: left;
   color: #000000;
 }
+
+ul.admins { padding-left: 2em; list-style: none; font-weight: normal;}
