@@ -73,14 +73,36 @@
   }
 
   function display_admins($admin_set) {
-    $output = "<ul class=\"admins\">";
+    $output = null;
     while ($admin = mysqli_fetch_assoc($admin_set)) {
-      //print($admin["username"]);
-      $output .= "<li>";
+
+      //$break = "<br />";
+      //printf("name is %s %s", $admin["username"], $break);
+
+      $output .= "<tr>";
+      $output .= "<td>";
       $output .= htmlentities($admin["username"]);
-      $output .= "</li>";
+      $output .= "</td>";
+
+      $output .= "<td>";
+      $output .= "<a href=\"edit_admin.php?id=";
+      $output .= urlencode($admin["id"]);
+      $output .= "\">";
+      $output .= "Edit";
+      $output .= "</a>";
+      $output .= "</td>";
+
+      $output .= "<td>";
+      $output .= "<a href=\"delete_admin.php?id=";
+      $output .= urlencode($admin["id"]);
+      $output .= "\"";
+      $output .= " onclick=\"return confirm('Are you sure?');";
+      $output .= "\">";
+      $output .= "Delete";
+      $output .= "</a>";
+      $output .= "</td>";
+      $output .= "</tr>";
     }
-    $output .= "</ul>";
     mysqli_free_result($admin_set);
     return $output;
   }
@@ -282,10 +304,6 @@
       $output .= "<li>";
       $output .= "<a href=\"manage_content.php?page=";
       $output .= urlencode($page["id"]);
-
-      // $output .= "&subject=";
-      // $output .= urldecode($subject_id);
-
       $output .= "\">";
       $output .=  htmlentities($page["menu_name"]);
       $output .= "</a></li>";

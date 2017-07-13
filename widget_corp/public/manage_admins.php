@@ -9,24 +9,19 @@
 
 <div id="main">
   <div id="navigation"></div>
+    &nbsp;
   <div id="page">
-      <div>
-        <h2>Manage Admins</h2>
-      </div>
-      <div id="username">
+      <h2>Manage Admins</h2>
+      <table>
+        <tr>
+          <th style ="text-align: left; width: 200px;">Username</th>
+          <th colspan="2" style="text-align: left;">Actions</th>
+        </tr>
         <!-- loop through all admin usernames  -->
-        <h3>Username</h3>
         <?php echo display_admins($admin_set); ?>
-        <!-- function should display html of username and edit delete link dynamically  -->
-      </div>
-      <div id="actions">
-        <h3>Actions</h3>
-        <!-- pass the id of user to next page -->
-        <a href="edit_admin.php">Edit</a>
-        <a href="delete_admin.php">Delete</a>
-      </div>
+      </table>
+      <br />
+      <a href="new_admin.php">Add new admin</a>
   </div>
-  <a href="new_admin.php">Add new admin</a>
 </div>
-
 <?php include("../includes/layouts/footer.php") ?>
