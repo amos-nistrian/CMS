@@ -7,11 +7,8 @@
 if (isset($_POST['submit'])) {
 
   // Process the form
-  $subject_id = $_POST["subject_id"];
-  $menu_name = mysql_prep($_POST["menu_name"]);
-	$position = (int) $_POST["position"];
-	$visible = (int) $_POST["visible"];
-  $content = mysql_prep($_POST["content"]);
+  $username = mysql_prep($_POST["username"]);
+  $password = mysql_prep($_POST["password"]);
 
   //print_r($_POST);
   //print_r($subject_id);
@@ -19,36 +16,36 @@ if (isset($_POST['submit'])) {
 
 <?php
   // validation
-  $required_fields = array("menu_name", "subject_id", "position", "visible", "content");
+  $required_fields = array("username", "password");
   validate_presences($required_fields);
 
-  $fields_with_max_length = array("menu_name" => 30);
+  $fields_with_max_length = array("username" => 50, "password" => 50);
   validate_max_lengths($fields_with_max_length);
 
   if (!empty($errors)) {
     $_SESSION["errors"] = $errors;
-    redirect_to("new_page.php");
+    redirect_to("new_admin.php");
   }
 
-  $query  = "INSERT INTO pages (";
-	$query .= "  subject_id, menu_name, position, visible, content";
+  $query  = "INSERT INTO admins (";
+	$query .= "  username, hashed_password";
 	$query .= ") VALUES (";
-	$query .= "  {$subject_id}, '{$menu_name}', {$position}, {$visible}, '{$content}'";
+	$query .= "  '{$username}', '{$password}'";
 	$query .= ")";
   $result = mysqli_query($connection, $query);
 
 	if ($result && mysqli_affected_rows($connection) >= 0 ) {
     // Success
-    $_SESSION["message"] = "Page created.";
-    redirect_to("manage_content.php");
+    $_SESSION["message"] = "Admin created.";
+    redirect_to("manage_admins.php");
 	} else {
 		// Failure
-		$_SESSION["message"] = "Page creation failed";
-    redirect_to("new_page.php");
+		$_SESSION["message"] = "Admin creation failed";
+    redirect_to("new_admin.php");
 	}
 } else {
   // This is probably a GET request
-  redirect_to("mange_content.php");
+  redirect_to("mange_admins.php");
 }
 ?>
 
