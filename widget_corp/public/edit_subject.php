@@ -49,8 +49,7 @@ if (isset($_POST['submit'])) {
   		// Failure
   		$message = "Subject update failed.";
   	}
-
-}
+  }
 } else {
   // This is probably a GET request
 } // end: if (isset($_POST['submit']))

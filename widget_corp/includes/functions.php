@@ -217,6 +217,17 @@
     }
   }
 
+  function find_selected_admin() {
+    global $current_admin;
+
+    if (isset($_GET["id"])) {
+      $current_admin = find_admin_by_id($_GET["id"]);
+      return $current_admin;
+    } else {
+      return null;
+    }
+  }
+
   // navigation take 2 arguments
   // - the current subject array or null
   // - the current page array or null

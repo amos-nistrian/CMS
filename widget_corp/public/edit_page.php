@@ -14,7 +14,6 @@
 ?>
 
 <?php
-
 if (isset($_POST['submit'])) {
   // Process the form
 
@@ -27,14 +26,14 @@ if (isset($_POST['submit'])) {
 
   if (empty($errors)) {
 
-    // Perform Update
-
+    // Process the form
     $id = $current_page["id"];
     $menu_name = mysql_prep($_POST["menu_name"]);
     $position = (int) $_POST["position"];
     $visible = (int) $_POST["visible"];
     $content = mysql_prep($_POST["content"]);
 
+    // Perform Update
     $query  = "UPDATE pages SET ";
   	$query .= "menu_name = '{$menu_name}', ";
   	$query .= "position = {$position}, ";
@@ -54,14 +53,12 @@ if (isset($_POST['submit'])) {
   		// Failure
   		$message = "Page update failed.";
   	}
-
-}
+  }
 } else {
   // This is probably a GET request
 } // end: if (isset($_POST['submit']))
-
-
 ?>
+
 <?php global $layout_context; ?>
 <?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
