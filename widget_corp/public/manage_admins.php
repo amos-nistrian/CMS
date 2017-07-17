@@ -8,8 +8,10 @@
 
 
 <div id="main">
-  <div id="navigation"></div>
-    &nbsp;
+  <div id="navigation">
+    <br />
+  <a href="admin.php">&laquo; Main menu</a><br />
+  </div>
   <div id="page">
       <h2>Manage Admins</h2>
       <table>

@@ -31,8 +31,8 @@ if (isset($_POST['submit'])) {
 
     // Process the form
     $username = mysql_prep($_POST["username"]);
-    //$id = (int) $_POST["id"];
-    $password = mysql_prep($_POST["password"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
 
     // Perform Update
     $query  = "UPDATE admins SET ";

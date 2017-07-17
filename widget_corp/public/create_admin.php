@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 
   // Process the form
   $username = mysql_prep($_POST["username"]);
-  $password = mysql_prep($_POST["password"]);
+  $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
   //print_r($_POST);
   //print_r($subject_id);
