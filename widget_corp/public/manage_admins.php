@@ -4,6 +4,9 @@
 <?php global $layout_context; ?>
 <?php $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
+
+<?php confirm_logged_in(); ?>
+
 <?php $admin_set = find_all_admins(); ?>
 
 

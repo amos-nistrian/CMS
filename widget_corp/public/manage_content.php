@@ -4,6 +4,9 @@
 <?php global $layout_context; ?>
 <?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>
+
+<?php confirm_logged_in(); ?>
+
 <?php find_selected_page(); ?>
 
 <div id="main">

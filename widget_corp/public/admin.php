@@ -1,5 +1,7 @@
 <?php require_once("../includes/session.php") ?>
 <?php include_once("../includes/functions.php") ?>
+<?php confirm_logged_in(); ?>
+
 <?php global $layout_context; ?>
 <?php  $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php") ?>

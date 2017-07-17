@@ -6,6 +6,7 @@
 <?php include("../includes/layouts/header.php") ?>
 <?php include("jsfunctions.js") ?>
 
+<?php confirm_logged_in(); ?>
 
 <?php find_selected_page(); ?>
 
