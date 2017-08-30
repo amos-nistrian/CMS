@@ -17,10 +17,11 @@
       <h2><?php echo htmlentities($current_page["menu_name"]) ?></h2>
       <?php echo nl2br(htmlentities($current_page["content"])) ?>
 
-    <?php } else { ?>
-
-      <p>Welcome!</p>
-
+    <?php } elseif(!$current_page && $current_subject) { ?>
+    <!-- display nothing if subject has no pages -->
+    <?php } else {?>
+        <!-- display welcome message, bc subject hasnt been selected yet  -->
+      <p>Welcome to Widget Corp!</p>
     <?php } ?>
   </div>
 </div>
