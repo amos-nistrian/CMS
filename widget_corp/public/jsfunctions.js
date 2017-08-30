@@ -42,7 +42,7 @@
     console.log(subject_id);
 
     var sel = document.getElementById("position");
-    sel.options.length = 0; //delete all options if any present
+    sel.options.length = 0; //clear out any position options that may be present
 
     var pos = 1;
     for(var i = 0; i < pages.length; i++){
