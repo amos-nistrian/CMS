@@ -39,6 +39,7 @@
             <script>
               // turn these into json so we can use js
               var subjects = <?php echo json_encode($subjects); ?>;
+              // loads the subjects into the select element
               loadSubjects(subjects);
             </script>
           </select>
@@ -46,7 +47,9 @@
         <p>Position:
           <select name="position" id="position">
             <script>
+              // turn these into json so we can use js
               var pages = <?php echo json_encode($pages); ?>;
+              console.log("gonna load pages");
               loadPages(pages);
             </script>
           </select>
